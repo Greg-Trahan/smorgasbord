@@ -1,4 +1,4 @@
-const { Model, DataTypes, STRING } = require('sequelize');
+const { Model, DataTypes  } = require('sequelize');
 const sequelize = require('../config/connection')
 
 class Locales extends Model {}
@@ -34,7 +34,7 @@ Locales.init (
   timestamps: false,
   freezeTableName: true,
   underscored: true,
-  modelName: 'blogposts',
+  modelName: 'locales',
   }
 
 
