@@ -20,8 +20,13 @@ Locales.init (
     allowNull: false,    
    },
    price: {
-    type: DataTypes.
-    
+    type: DataTypes.INTEGER,
+    allowNull: false,
+   },
+   datecreated: {
+    type: DataTypes.DATE,
+    allowNull: false,
+    defaultValue: DataTypes.NOW,
    }
   },
   {
