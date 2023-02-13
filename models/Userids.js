@@ -5,12 +5,6 @@ class Userids extends Model {}
 
 Userids.init (
   {
-    id: {
-      type: DataTyles.INTEGER,
-      primaryKey: true,
-      allowNull: false,
-      autoIncrement: true,
-    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -26,6 +20,9 @@ Userids.init (
       }
     }
   },
+
+
+  
   {
     
    sequelize,
