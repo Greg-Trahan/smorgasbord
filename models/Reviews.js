@@ -31,3 +31,5 @@ Reviews.init (
     modelName: 'reviews',
   }
 )
+
+module.exports = Reviews
