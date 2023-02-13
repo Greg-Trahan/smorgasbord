@@ -1,15 +1,15 @@
-const sequelize = require('../config/connection')
-const seedRestaurants = require('./localesData')
-const seedUser = require('./userData')
+const sequelize = require("../config/connection");
+const seedLocales = require("./localesData");
+const seedUser = require("./userData");
 
 const seedAll = async () => {
-  await sequelize.sync({force: true})
-  
-  await seedRestaurants()
+  await sequelize.sync({ force: true });
 
-  await seedUser()
+  await seedUser();
 
-  process.exit(0)
-}
+  await seedLocales();
 
-seedAll()
+  process.exit(0);
+};
+
+seedAll();
