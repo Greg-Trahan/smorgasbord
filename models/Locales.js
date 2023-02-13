@@ -1,9 +1,9 @@
-const { Model, DataTypes  } = require('sequelize');
-const sequelize = require('../config/connection')
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
 class Locales extends Model {}
 
-Locales.init (
+Locales.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -18,37 +18,30 @@ Locales.init (
     address: {
       type: DataTypes.STRING,
       allowNull: false,
-    },    
-   user_id: {
-    type: DataTypes.STRING,
-    allowNull: false,    
-   },
-   foodtype: {
-    type: DataTypes.STRING,
-    allowNull: false,
-   },
-   price: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-   },
-   datecreated: {
-    type: DataTypes.DATE,
-    allowNull: false,
-    defaultValue: Sequelize.NOW,
-   }
+    },
+    user_id: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    foodtype: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    price: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    datecreated: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: sequelize.NOW,
+    },
   },
   {
-     sequelize,
-  timestamps: false,
-  freezeTableName: true,
-  underscored: true,
-  modelName: 'locales',
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: "locales",
   }
-
-
-
-
-
-
-
-)
+);
