@@ -1,6 +1,6 @@
 const router = require("express").Router();
-const Locales = require("../models");
-const Users = require("../models");
+const Locales = require("../../models/Locales");
+const Users = require("../../models/Users");
 
 router.get("/:id", async (req, res) => {
   try {
