@@ -45,3 +45,5 @@ Locales.init(
     modelName: "locales",
   }
 );
+
+module.exports = Locales;
