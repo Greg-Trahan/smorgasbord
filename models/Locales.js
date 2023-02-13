@@ -14,10 +14,18 @@ Locales.init (
     name: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    address: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },    
    user_id: {
     type: DataTypes.STRING,
     allowNull: false,    
+   },
+   foodtype: {
+    type: DataTypes.STRING,
+    allowNull: false,
    },
    price: {
     type: DataTypes.INTEGER,
@@ -26,7 +34,7 @@ Locales.init (
    datecreated: {
     type: DataTypes.DATE,
     allowNull: false,
-    defaultValue: DataTypes.NOW,
+    defaultValue: Sequelize.NOW,
    }
   },
   {
