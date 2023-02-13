@@ -10,10 +10,10 @@ Users.hasMany(Locales, {
   //   unique: false,
   // },
 });
+
 Locales.belongsTo(Users, {
   foreignKey: "user_id",
 });
-
 // Reviews.hasMany(Users, {
 //   through: {
 //     model: Userids,
@@ -21,7 +21,7 @@ Locales.belongsTo(Users, {
 //   },
 // });
 module.exports = {
-  Locales,
   Users,
-  Userids,
+  Locales,
+  // Userids,
 };

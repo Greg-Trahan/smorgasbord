@@ -19,14 +19,6 @@ Locales.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    user_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: "users",
-        key: "id",
-      },
-    },
     type_id: {
       type: DataTypes.STRING,
       allowNull: false,
