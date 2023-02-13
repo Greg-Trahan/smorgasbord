@@ -16,4 +16,6 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+//Add post, put, delete comments
+
 module.exports = router;

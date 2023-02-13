@@ -20,26 +20,29 @@ Locales.init(
       allowNull: false,
     },
     user_id: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: false,
+      references: {
+        model: "users",
+        key: "id",
+      },
     },
-    foodtype: {
+    type_id: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     price: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
     },
-    datecreated: {
-      type: DataTypes.DATE,
+    description: {
+      type: DataTypes.TEXT,
       allowNull: false,
-      defaultValue: sequelize.NOW,
     },
   },
   {
     sequelize,
-    timestamps: false,
+    timestamps: true,
     freezeTableName: true,
     underscored: true,
     modelName: "locales",
