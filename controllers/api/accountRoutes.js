@@ -2,6 +2,7 @@ const router = require("express").Router();
 const Locales = require("../../models/Locales");
 const Users = require("../../models/Users");
 const nodemailer = require("../../utils/nodeMailer");
+const bcrypt = require("bcrypt");
 
 router.post("/signup", async (req, res) => {
   try {
@@ -26,13 +27,12 @@ router.post("/login", async (req, res) => {
     if (!user) {
       throw new Error("Incorrect username or password");
     }
-    if (!user.checkPassword(req.body.password)) {
-      throw new Error("Incorrect username or password");
-    }
-    req.session.save(() => {
-      req.session.logged_in = true;
-      req.session.user_id = user.user_id;
-      res.status(200).json(user);
+    bcrypt.compare(req.body.password, 10, function (err, result) {
+      req.session.save(() => {
+        req.session.logged_in = true;
+        req.session.user_id = user.user_id;
+        res.status(200).json(user);
+      });
     });
   } catch (err) {
     res.status(400).json(err);
