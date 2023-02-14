@@ -1,2 +1,2 @@
-DROP DATABASE IF EXISTS smorgesbord_db;
-CREATE DATABASE smorgesbord_db;
+DROP DATABASE IF EXISTS smorgasbord_db;
+CREATE DATABASE smorgasbord_db;

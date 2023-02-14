@@ -6,13 +6,10 @@ router.get("/", async (req, res) => {
   console.log("Hello there! General Kenboi.");
   try {
     const localeData = await Locales.findAll({});
-
     // console.log([{ model: Users, attributes: ["name"] }]);
-
     // console.log(localeData);
 
     const localesMap = localeData.map((locale) => locale.get({ plain: true }));
-
     // console.log(localesMap);
 
     const localesUsers = localesMap.map(async (locale) => {
