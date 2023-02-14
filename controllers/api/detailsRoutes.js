@@ -11,11 +11,14 @@ router.get("/:id", withAuth, async (req, res) => {
     } else {
       const locale = localeData.get({ plain: true });
       res.render("details", { locale, logged_in: req.session.logged_in });
+      console.log('these are the details');
     }
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
+
 
 //Add post, put, delete comments
 
