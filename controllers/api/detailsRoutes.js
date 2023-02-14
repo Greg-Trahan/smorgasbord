@@ -1,8 +1,9 @@
 const router = require("express").Router();
 const Locales = require("../../models/Locales");
 const Users = require("../../models/Users");
+const withAuth = require("../../utils/withAuth");
 
-router.get("/:id", async (req, res) => {
+router.get("/:id", withAuth, async (req, res) => {
   try {
     const localeData = await Locales.getByPk(req.params.id);
     if (!localeData) {

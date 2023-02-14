@@ -5,18 +5,34 @@ const Locales = require("../models/Locales");
 router.get("/", async (req, res) => {
   console.log("Hello there! General Kenboi.");
   try {
-    const localeData = await Locales.findAll({
-      // include: [{ model: Users, attributes: ["name"] }],
-    });
+    const localeData = await Locales.findAll({});
 
-    console.log(localeData);
+    // console.log([{ model: Users, attributes: ["name"] }]);
+
+    // console.log(localeData);
 
     const localesMap = localeData.map((locale) => locale.get({ plain: true }));
 
-    res.render("homepage", {
-      localesMap,
-      logged_in: req.session.logged_in,
+    // console.log(localesMap);
+
+    const localesUsers = localesMap.map(async (locale) => {
+      const user = await Users.findByPk(locale.user_id);
+      const plainUser = user.get({ plain: true });
+      const newLocale = { ...locale, username: plainUser.name };
+      console.log(newLocale);
+      return newLocale;
     });
+
+    // console.log(localesUsers);
+    Promise.all(localesUsers).then((values) => {
+      console.log(values);
+      res.render("homepage", {
+        values,
+        logged_in: req.session.logged_in,
+      });
+    });
+
+    // console.log(localeData);
   } catch (err) {
     console.log("You done messed up A-aron");
     res.status(500).json(err);
