@@ -1,37 +1,21 @@
 const router = require("express").Router();
-const Users = require("../models/Users");
-const Locales = require("../models/Locales");
+const { Users, Locales } = require("../models");
 
 router.get("/", async (req, res) => {
   console.log("Hello there! General Kenboi.");
   try {
-    const localeData = await Locales.findAll({});
-    // console.log([{ model: Users, attributes: ["name"] }]);
-    // console.log(localeData);
-
-    const localesMap = localeData.map((locale) => locale.get({ plain: true }));
-    // console.log(localesMap);
-
-    const localesUsers = localesMap.map(async (locale) => {
-      const user = await Users.findByPk(locale.user_id);
-      const plainUser = user.get({ plain: true });
-      const newLocale = { ...locale, username: plainUser.name };
-      console.log(newLocale);
-      return newLocale;
+    const localeData = await Locales.findAll({
+      include: [{ model: Users }],
     });
 
-    // console.log(localesUsers);
-    Promise.all(localesUsers).then((values) => {
-      console.log(values);
-      res.render("homepage", {
-        values,
-        logged_in: req.session.logged_in,
-      });
-    });
+    const locales = localeData.map((locale) => locale.get({ plain: true }));
 
-    // console.log(localeData);
+    res.render("homepage", {
+      locales,
+      logged_in: req.session.logged_in,
+    });
   } catch (err) {
-    console.log("You done messed up A-aron");
+    console.log(err.message);
     res.status(500).json(err);
   }
 });
