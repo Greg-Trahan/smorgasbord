@@ -3,10 +3,12 @@ const Users = require("../models/Users");
 const Locales = require("../models/Locales");
 
 router.get("/", async (req, res) => {
+  console.log("Hello there! General Kenboi.");
   try {
     const localeData = await Locales.findAll({
-      include: [{ model: Users, attributes: ["name"] }],
+      // include: [{ model: Users, attributes: ["name"] }],
     });
+
     console.log(localeData);
 
     const localesMap = localeData.map((locale) => locale.get({ plain: true }));
