@@ -1,9 +1,9 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
 class Reviews extends Model {}
 
-Reviews.init (
+Reviews.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,16 +11,25 @@ Reviews.init (
       primaryKey: true,
       autoIncrement: true,
     },
-    user_id: {
-      type: Datatypes.INTEGER,
-        references: {
-          model: 'users',
-          key: 'id',
-        }
-    },
     reviewtext: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
+    },
+    locale_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: "locale",
+        key: "id",
+      },
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: "user",
+        key: "id",
+      },
     },
   },
   {
@@ -28,8 +37,8 @@ Reviews.init (
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'reviews',
+    modelName: "reviews",
   }
-)
+);
 
-module.exports = Reviews
+module.exports = Reviews;
