@@ -1,6 +1,6 @@
 const router = require("express").Router();
-const Locales = require("../models");
-const Users = require("../models");
+const Locales = require("../../models/Locales");
+const Users = require("../../models/Users");
 
 router.get("/:id", async (req, res) => {
   try {
@@ -15,5 +15,7 @@ router.get("/:id", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+//Add post, put, delete comments
 
 module.exports = router;

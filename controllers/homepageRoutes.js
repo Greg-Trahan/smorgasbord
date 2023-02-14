@@ -1,24 +1,24 @@
 const router = require("express").Router();
-const Locales = require("../models");
-const Users = require("../models");
+const Users = require("../models/Users");
+const Locales = require("../models/Locales");
 
 router.get("/", async (req, res) => {
+  console.log("Hello there! General Kenboi.");
   try {
     const localeData = await Locales.findAll({
-      include: [
-        {
-          model: Users,
-          attributes: ["name"],
-        },
-      ],
+      // include: [{ model: Users, attributes: ["name"] }],
     });
 
-    const locales = localeData.map((project) => project.get({ plain: true }));
+    console.log(localeData);
+
+    const localesMap = localeData.map((locale) => locale.get({ plain: true }));
 
     res.render("homepage", {
-      locales,
+      localesMap,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
+    console.log("You done messed up A-aron");
     res.status(500).json(err);
   }
 });

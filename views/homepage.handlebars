@@ -1,14 +1,16 @@
-
 {{#each locales as |locales|}}
 <section class="dashboard">
     <div class="animate__animated animate__fadeInUp animate__delay-1s card">
     <div class="content">
-    <div><img src="../public/css/style.css" class="dish"></div>
+    <div><img src="../public/css/images/dish.jpg" class="dish"></div>
       <div>
-        <h2>Restaurant</h2>
-        <p>username</p>
+        <a href="/locales/{{locales.id}}"><h2>{{locales.name}}</h2></a>
+        <p>{{locales.user.name}}</p>
       </div>
     </div>
     </div>
 </section>  
 {{/each}}
+
+
+

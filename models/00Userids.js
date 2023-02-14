@@ -35,3 +35,5 @@ Userids.init (
 
 
 )
+
+module.exports = Userids;

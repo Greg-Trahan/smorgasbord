@@ -1,6 +1,6 @@
 * {
     font-family: 'Old Standard TT', serif;
-    color: #343841;
+    /* color: #343841; */
 }
 
 body {
@@ -16,6 +16,7 @@ header {
 }
 .nav {
     font-size: 2vh;
+    color: #343841;
 }
 
 .logo {
@@ -28,6 +29,7 @@ header {
 .title {
     font-size: 8vw;
     margin: 0;
+    color: #343841;
 }
 
 .card {
@@ -39,6 +41,7 @@ header {
     display: flex;
     flex-direction: column;
     padding: 1rem;
+    color: #343841;
 }
 
 .card:hover {
@@ -59,6 +62,29 @@ header {
     flex-wrap: wrap;
 }
 
+.restaurant {
+    box-shadow: 0 4px 8px 0 black;
+    margin: 1rem;
+    background-color:white;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-info {
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.info {
+    background-color: #343841;
+    color: white;
+    padding: 1rem;
+}
+
+.description {
+    padding: 1rem;
+}
 
 
 
