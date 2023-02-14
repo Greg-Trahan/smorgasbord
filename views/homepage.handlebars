@@ -1,11 +1,11 @@
-{{#each locales as |locales|}}
+{{#each values as |values|}}
 <section class="dashboard">
     <div class="animate__animated animate__fadeInUp animate__delay-1s card">
     <div class="content">
-    <div><img src="../public/css/images/dish.jpg" class="dish"></div>
+    <div><img src="/css/images/dish.jpg" class="dish"></div>
       <div>
-        <a href="/locales/{{locales.id}}"><h2>{{locales.name}}</h2></a>
-        <p>{{ values.[0].username }}</p>
+        <a href="/api/details/{{values.id}}"><h2>{{values.name}}</h2></a>
+        <p>Posted on {{format_date values.createdAt}} by {{values.username}}</p>
       </div>
     </div>
     </div>
