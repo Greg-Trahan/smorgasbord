@@ -21,23 +21,18 @@ router.post("/signup", async (req, res) => {
 
 router.post("/login", async (req, res) => {
   try {
-    console.log("Good morning!");
     const user = await Users.findOne({
       where: { email: req.body.email },
     });
-    console.log("Good afternoon");
     if (!user) {
       throw new Error("Incorrect username or password");
     }
-    console.log("Good evening");
-    if (!user.checkPassword(req.body.password)) {
-      throw new Error("Incorrect username or password");
-    }
-    console.log("Good night");
-    req.session.save(() => {
-      req.session.logged_in = true;
-      req.session.user_id = user.user_id;
-      res.status(200).json(user);
+    bcrypt.compare(req.body.password, 10, function (err, result) {
+      req.session.save(() => {
+        req.session.logged_in = true;
+        req.session.user_id = user.user_id;
+        res.status(200).json(user);
+      });
     });
   } catch (err) {
     res.status(400).json(err);
