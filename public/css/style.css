@@ -2,6 +2,9 @@
     font-family: 'Old Standard TT', serif;
     /* color: #343841; */
 }
+a {
+    color: #343841;
+}
 
 body {
     margin: 0;
