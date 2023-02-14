@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
+const Users = require("./Users");
 
 class Locales extends Model {}
 
@@ -30,6 +31,14 @@ Locales.init(
     description: {
       type: DataTypes.TEXT,
       allowNull: false,
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: "users",
+        key: "id",
+      },
     },
   },
   {
