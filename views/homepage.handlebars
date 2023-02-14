@@ -1,6 +1,13 @@
-<section class="animate__animated animate__fadeInDown">
-  <div>
-      <h2>Restaurant</h2>
-      <p>submited on MM/DD/YYY by {{ values.[0].username }}</p>
-  </div>
+{{#each locales as |locales|}}
+<section class="dashboard">
+    <div class="animate__animated animate__fadeInUp animate__delay-1s card">
+    <div class="content">
+    <div><img src="../public/css/images/dish.jpg" class="dish"></div>
+      <div>
+        <a href="/locales/{{locales.id}}"><h2>{{locales.name}}</h2></a>
+        <p>{{ values.[0].username }}</p>
+      </div>
+    </div>
+    </div>
 </section>  
+{{/each}}
