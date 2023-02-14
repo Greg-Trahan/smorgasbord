@@ -5,13 +5,14 @@ const nodemailer = require("../../utils/nodeMailer");
 
 router.post("/signup", async (req, res) => {
   try {
-    const user = await User.create(req.body);
+    const user = await Users.create(req.body);
+    console.log(req.body);
     req.session.save(() => {
       req.session.logged_in = true;
       req.session.user_id = user.user_id;
       res.status(200).json(user);
     });
-    nodemailer;
+    nodemailer();
   } catch (err) {
     res.status(400).json(err);
   }
@@ -19,7 +20,9 @@ router.post("/signup", async (req, res) => {
 
 router.post("/login", async (req, res) => {
   try {
-    const user = await User.findOne({ where: { username: req.body.username } });
+    const user = await Users.findOne({
+      where: { email: req.body.email },
+    });
     if (!user) {
       throw new Error("Incorrect username or password");
     }
@@ -33,6 +36,7 @@ router.post("/login", async (req, res) => {
     });
   } catch (err) {
     res.status(400).json(err);
+    console.log(req.body);
   }
 });
 
