@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
-const Users = require("./Users");
+// const Users = require("./Users");
 
 class Locales extends Model {}
 
