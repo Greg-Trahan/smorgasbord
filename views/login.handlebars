@@ -1,25 +1,28 @@
 <div class="form-flex">
     <div class="form-box">
         <h2>Login</h2>
-        <form class="form">
-        <label> Username: </label>
-        <input type="text">
+        <form class="form login-form">
+        <label> Email: </label>
+        <input type="text" id="email-login">
         <label> Password: </label>
-        <input type="password">
+        <input type="password" id="password-login">
         <button type="submit">login</button>
         </form>
     </div>
 
     <div class="form-box">
         <h2>Signup</h2>
-        <form class="form">
+        <form class="form signup-form">
         <label> Email: </label>
-        <input type="text">
-        <label> Username:</label>
-        <input type="text">
+        <input type="text" id="email-signup">
+        <label> Name:</label>
+        <input type="text" id="name-signup">
         <label> Password: </label>
-        <input type="password">
+        <input type="password" id="password-signup">
         <button type="submit">signup</button>
         </form>
     </div>
 </div>
+
+<script src="./js/login.js"></script>
+<script src="./js/signup.js"></script>
