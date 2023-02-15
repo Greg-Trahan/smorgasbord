@@ -1,38 +1,43 @@
 const router = require("express").Router();
-const Users = require("../models/Users");
-const Locales = require("../models/Locales");
+const { Users, Locales } = require("../models");
+const withAuth = require("../utils/withAuth");
 
 router.get("/", async (req, res) => {
-  console.log("Hello there! General Kenboi.");
   try {
-    const localeData = await Locales.findAll({});
-    // console.log([{ model: Users, attributes: ["name"] }]);
-    // console.log(localeData);
-
-    const localesMap = localeData.map((locale) => locale.get({ plain: true }));
-    // console.log(localesMap);
-
-    const localesUsers = localesMap.map(async (locale) => {
-      const user = await Users.findByPk(locale.user_id);
-      const plainUser = user.get({ plain: true });
-      const newLocale = { ...locale, username: plainUser.name };
-      console.log(newLocale);
-      return newLocale;
+    const localeData = await Locales.findAll({
+      include: [{ model: Users }],
     });
 
-    // console.log(localesUsers);
-    Promise.all(localesUsers).then((values) => {
-      console.log(values);
-      res.render("homepage", {
-        values,
-        logged_in: req.session.logged_in,
-      });
-    });
+    const values = localeData.map((locale) => locale.get({ plain: true }));
 
-    // console.log(localeData);
+    res.render("homepage", {
+      values,
+      logged_in: req.session.logged_in,
+    });
   } catch (err) {
-    console.log("You done messed up A-aron");
     res.status(500).json(err);
+  }
+});
+
+router.get("/profile", async (req, res) => {
+  try {
+    console.log(req.session.user_id);
+    console.log("Good morning");
+    const localeData = await Locales.findAll({
+      where: { user_id: req.session.user_id },
+      include: [{ model: Users }],
+    });
+
+    console.log("Good afternoon");
+    const locales = localeData.map((locale) => locale.get({ plain: true }));
+    console.log("Good evening");
+    res.render("profile", {
+      locales,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+    console.log(err.message);
   }
 });
 

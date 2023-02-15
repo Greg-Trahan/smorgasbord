@@ -25,18 +25,27 @@ router.post("/login", async (req, res) => {
       where: { email: req.body.email },
     });
     if (!user) {
-      throw new Error("Incorrect username or password");
+      res
+        .status(400)
+        .json({ message: "Incorrect email or password, please try again" });
+      return;
     }
-    bcrypt.compare(req.body.password, 10, function (err, result) {
-      req.session.save(() => {
-        req.session.logged_in = true;
-        req.session.user_id = user.user_id;
-        res.status(200).json(user);
-      });
+    const validPassword = await user.checkPassword(req.body.password);
+    if (!validPassword) {
+      res
+        .status(400)
+        .json({ message: "Incorrect email or password, please try again" });
+      return;
+    }
+
+    req.session.save(() => {
+      req.session.logged_in = true;
+      req.session.user_id = user.id;
+      req.session.name = user.name;
+      res.json({ user: user, message: "You are now logged in!" });
     });
   } catch (err) {
     res.status(400).json(err);
-    console.log(req.body);
   }
 });
 
