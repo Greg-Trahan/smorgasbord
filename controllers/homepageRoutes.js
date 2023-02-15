@@ -8,14 +8,13 @@ router.get("/", async (req, res) => {
       include: [{ model: Users }],
     });
 
-    const locales = localeData.map((locale) => locale.get({ plain: true }));
+    const values = localeData.map((locale) => locale.get({ plain: true }));
 
     res.render("homepage", {
-      locales,
+      values,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
-    console.log(err.message);
     res.status(500).json(err);
   }
 });
