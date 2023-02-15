@@ -21,11 +21,13 @@ router.get("/", async (req, res) => {
 
 router.get("/profile", async (req, res) => {
   try {
+    console.log(req.session.user_id);
     console.log("Good morning");
     const localeData = await Locales.findAll({
       where: { user_id: req.session.user_id },
       include: [{ model: Users }],
     });
+
     console.log("Good afternoon");
     const locales = localeData.map((locale) => locale.get({ plain: true }));
     console.log("Good evening");
