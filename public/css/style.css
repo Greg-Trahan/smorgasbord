@@ -17,6 +17,14 @@ header {
     align-items: center;
     margin: 1rem;
 }
+
+textarea {
+    resize: none;
+    min-height: 4rem;
+    font-size: 1rem;
+    padding: 0.5rem;
+}
+
 .nav {
     font-size: 2vh;
     color: #343841;
@@ -28,6 +36,11 @@ header {
 
 .dish {
     height: 8rem;
+}
+
+.check {
+  height: 25vw; 
+  padding: 1rem; 
 }
 .title {
     font-size: 8vw;
@@ -71,6 +84,7 @@ header {
     background-color:white;
     display: flex;
     flex-direction: column;
+    height: fit-content;
 }
 
 .content-info {
@@ -107,4 +121,67 @@ header {
     align-items: start;
 }
 
+.logout {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logout-flex {
+    box-shadow: 0 4px 8px 0 black;
+    margin: 1rem;
+    background-color:white;
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+}   
+
+.shrink {
+    display: flex;
+    justify-content: center;
+}
+
+.logout-info {
+    background-color: #343841;
+    color: white;
+    padding: 1rem;
+    font-size: 4vw;
+}
+
+.frame {
+    box-shadow: 0 4px 8px 0 black;
+    width: 25rem;
+    margin: 1rem;
+    background-color:white;
+    padding: 1rem;
+    color: #343841;
+}
+
+.form-text {
+    padding: 1rem 0;
+}
+
+.form-input {
+    min-height: 2rem;
+    font-size: 1rem;
+}
+
+.form-btn {
+    min-height: 2rem;
+    font-size: 1rem;
+    margin: 1rem 0;
+}
+
+.review-frame {
+    box-shadow: 0 4px 8px 0 black;
+    width: -webkit-fill-available;
+    margin: 1rem;
+    background-color:white;
+    padding: 1rem;
+    color: #343841;
+}
+
+.thumbsup {
+    height: 5vh;
+}
 
