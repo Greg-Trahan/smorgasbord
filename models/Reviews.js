@@ -19,7 +19,7 @@ Reviews.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: "locale",
+        model: "locales",
         key: "id",
       },
     },
@@ -27,7 +27,7 @@ Reviews.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: "user",
+        model: "users",
         key: "id",
       },
     },
