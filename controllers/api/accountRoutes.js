@@ -5,6 +5,16 @@ const bcrypt = require("bcrypt");
 
 router.post("/signup", async (req, res) => {
   try {
+    const emailCheck = await Users.findOne({
+      where: { email: req.body.email },      
+    });
+    if (emailCheck) {
+      res
+        .status(400)
+        .json({ message: "This email is already in use."})
+        //  confirm("This email is already in use.")        
+        return;
+    }
     const user = await Users.create(req.body);
     req.session.save(() => {
       req.session.logged_in = true;
