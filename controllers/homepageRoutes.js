@@ -38,7 +38,7 @@ router.get("/profile", withAuth, async (req, res) => {
 });
 
 router.get("/login", async (req, res) => {
-  res.render("login", { logged_in: req.session.logged_in });  
+  res.render("login", { logged_in: req.session.logged_in });
 });
 
 router.get("/logout", async (req, res) => {
