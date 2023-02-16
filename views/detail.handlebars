@@ -10,20 +10,20 @@
     <div class="description">
     <h3>Description</h3>
       <p>{{values.description}}</p>
-      <p>Posted by {{values.username}}</p>
+      <p>Posted by {{username}}</p>
     </div>
   </div>
   </div>
 
   <section class="animate__animated animate__fadeInUp animate__delay-2s form-flex">
-    <form class="form-box review-frame">
+    <form class="form-box review-frame review-submit-form">
       <div class="review-title">
       <label><h2>Add a Review</h2></label>
       <img src="/css/images/review.png" class="thumbsup">
       </div>
-      <textarea name="comment-body" placeholder="Leave your review here"></textarea>
+      <textarea name="comment-body" placeholder="Leave your review here" id="review-text"></textarea>
 
-      <button type="submit" class="form-btn">Submit</button>
+      <button type="submit" class="form-btn" id="review-submit-btn" locale-id="{{values.id}}" user-id="{{userId}}" name-id="{{name}}">Submit</button>
   </form>
   </section>
 
@@ -36,3 +36,5 @@
   <p>posted on mm/dd/yyyy by username</p>
 </div>
 </section>
+
+<script src="/js/review.js"></script>
