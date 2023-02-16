@@ -40,12 +40,13 @@ router.get("/profile", async (req, res) => {
 });
 
 router.get("/login", async (req, res) => {
-  res.render("login", { logged_in: req.session.logged_in });
+  res.render("login", { logged_in: req.session.logged_in });  
 });
 
 router.get("/logout", async (req, res) => {
-  console.log(logged_in);
+  req.session.logged_in = false;
   res.render("logout", { logged_in: req.session.logged_in });
+  console.log(req.session.logged_in);
 });
 
 module.exports = router;
