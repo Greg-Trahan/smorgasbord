@@ -2,7 +2,7 @@
 {{#each values as |values|}}
     <div class="animate__animated animate__fadeInUp animate__delay-1s card">
     <div class="content">
-    <div><img src="/css/images/dish.jpg" class="dish"></div>
+    <div><a href="/api/details/{{values.id}}"><img src="/css/images/dish.jpg" class="dish"></a></div>
       <div>
         <a href="/api/details/{{values.id}}"><h2>{{values.name}}</h2></a>
         <p>Posted on {{format_date values.createdAt}} by {{values.username}}</p>

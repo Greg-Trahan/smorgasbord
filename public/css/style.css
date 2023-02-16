@@ -42,6 +42,7 @@ textarea {
   height: 25vw; 
   padding: 1rem; 
 }
+
 .title {
     font-size: 8vw;
     margin: 0;
@@ -50,7 +51,7 @@ textarea {
 
 .card {
     box-shadow: 0 4px 8px 0 black;
-    transition: 0.3s;
+    transition: 1s;
     width: 25rem;
     margin: 1rem;
     background-color:white;
@@ -62,6 +63,7 @@ textarea {
 
 .card:hover {
     box-shadow: 0 8px 16px 0 black;
+    flex-grow: 1;
 }
 
 .content {
@@ -85,12 +87,12 @@ textarea {
     display: flex;
     flex-direction: column;
     height: fit-content;
+    flex: 2;
 }
 
 .content-info {
     align-items: center;
     display: flex;
-    justify-content: space-evenly;
 }
 
 .info {
@@ -119,6 +121,7 @@ textarea {
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: start;
+    flex: 1;
 }
 
 .logout {
@@ -154,7 +157,6 @@ textarea {
     margin: 1rem;
     background-color:white;
     padding: 1rem;
-    color: #343841;
 }
 
 .form-text {
@@ -178,10 +180,41 @@ textarea {
     margin: 1rem;
     background-color:white;
     padding: 1rem;
-    color: #343841;
 }
 
 .thumbsup {
     height: 5vh;
 }
 
+.user-review {
+    border-top: #343841 solid 3rem;
+    padding: 0.5rem 1rem;
+}
+
+.review-text {
+    font-style: italic;
+    font-weight: bolder;
+    font-size: 1.5rem;
+}
+
+.review-title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-post {
+    box-shadow: 0 4px 8px 0 black;
+    margin: 1rem;
+    background-color:white;
+    padding: 1rem;
+    flex: 1;
+}
+
+.user-posted {
+    box-shadow: 0 4px 8px 0 black;
+    margin: 1rem;
+    background-color:white;
+    padding: 1rem;
+    flex: 1;
+    height: fit-content;
+}
