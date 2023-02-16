@@ -1,13 +1,11 @@
 const router = require("express").Router();
-const Locales = require("../../models/Locales");
-const Users = require("../../models/Users");
+const { Users, Locales, Reviews } = require("../../models/");
 const nodemailer = require("../../utils/nodeMailer");
 const bcrypt = require("bcrypt");
 
 router.post("/signup", async (req, res) => {
   try {
     const user = await Users.create(req.body);
-    console.log(req.body);
     req.session.save(() => {
       req.session.logged_in = true;
       req.session.user_id = user.id;
