@@ -1,6 +1,6 @@
 const nodemailer = require("nodemailer");
 
-async function main(email) {
+async function main() {
   // Generate test SMTP service account from ethereal.email
   // Only needed if you don't have a real mail account for testing
   let testAccount = await nodemailer.createTestAccount();
@@ -11,15 +11,15 @@ async function main(email) {
     port: 587,
     secure: false, // true for 465, false for other ports
     auth: {
-      user: "smorgasbord35@gmail.com", // generated ethereal user
-      pass: "sm0rg@sb0rd", // generated ethereal password
+      user: testAccount.user, // generated ethereal user
+      pass: testAccount.pass, // generated ethereal password
     },
   });
 
   // send mail with defined transport object
   let info = await transporter.sendMail({
-    from: '"Smorgasbord Blog" <smorgasbord35@gmail.com>', // sender address
-    to: email, // list of receivers
+    from: '"Smorgasbord Blog" <trahan.greg@gmail.com>', // sender address
+    to: "jacobrayfigueroa@gmail.com", // list of receivers
     subject: "Welcome to Smorgasbord!", // Subject line
     text: "You have successfully signed up for Smorgasbord. We hope you enjoy your food!", // plain text body
     html: "<b>You have successfully signed up for Smorgasbord. We hope you enjoy your food!</b>", // html body
