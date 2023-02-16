@@ -9,9 +9,11 @@ router.post("/signup", async (req, res) => {
     req.session.save(() => {
       req.session.logged_in = true;
       req.session.user_id = user.id;
+      req.session.email = user.email;
       res.status(200).json(user);
     });
-    nodemailer();
+    email = req.session.email;
+    nodemailer(email);
   } catch (err) {
     res.status(400).json(err);
   }
