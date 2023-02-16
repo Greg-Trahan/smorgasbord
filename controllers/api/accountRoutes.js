@@ -12,8 +12,8 @@ router.post("/signup", async (req, res) => {
       req.session.email = user.email;
       res.status(200).json(user);
     });
-    email = req.session.email;
-    nodemailer(email);
+
+    nodemailer();
   } catch (err) {
     res.status(400).json(err);
   }
