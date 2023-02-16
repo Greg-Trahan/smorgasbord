@@ -218,3 +218,31 @@ textarea {
     flex: 1;
     height: fit-content;
 }
+
+.user-restaurants {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.user-btn {
+    width: 5rem;
+}
+
+.profile-dashboard {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width:800px) {
+    .profile-dashboard {
+        margin: 2rem 0;
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+}

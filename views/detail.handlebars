@@ -1,4 +1,4 @@
-<section class="dashboard">
+<section class="profile-dashboard">
   <div class="animate__animated animate__fadeInUp animate__delay-1s restaurant">
     <div class="content-info">
     <div class="info">
@@ -10,7 +10,7 @@
     <div class="description">
     <h3>Description</h3>
       <p>{{values.description}}</p>
-      <p>Posted by {{username}}</p>
+      {{!-- <p>Posted by {{username}}</p> --}}
     </div>
   </div>
   </div>
@@ -30,11 +30,15 @@
 
 </section>
 
+{{#if locales.length}}
+{{#each locales as |locales|}}
 <section class="animate__animated animate__fadeInUp animate__delay-3s restaurant">
   <div class ="user-review">
-  <p class="review-text">{{values.reviewtext}}</p>
-  <p>posted on mm/dd/yyyy by username</p>
+  <p class="review-text">"{{locales.reviewtext}}"</p>
+  <p>Posted by {{username}}</p>
 </div>
 </section>
+{{/each}}
+{{/if}}
 
 <script src="/js/review.js"></script>
