@@ -7,7 +7,6 @@ router.post("/", async (req, res) => {
   try {
     console.log(req.session.user_id);
     const data = await Locales.create({
-      // ...req.body,
       name: req.body.locale_name,
       address: req.body.locale_address,
       type_id: req.body.locale_type,
