@@ -10,7 +10,7 @@ router.post("/signup", async (req, res) => {
     console.log(req.body);
     req.session.save(() => {
       req.session.logged_in = true;
-      req.session.user_id = user.user_id;
+      req.session.user_id = user.id;
       res.status(200).json(user);
     });
     nodemailer();
