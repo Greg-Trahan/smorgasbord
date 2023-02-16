@@ -6,7 +6,6 @@ const withAuth = require("../../utils/withAuth");
 router.get("/:id", withAuth, async (req, res) => {
   try {
     const localeData = await Locales.findByPk(req.params.id);
-    console.log("My name is Sarah");
     if (!localeData) {
       res.status(404).json("Sorry, there is no restaurant by that id");
       return;
@@ -14,7 +13,6 @@ router.get("/:id", withAuth, async (req, res) => {
 
     const values = localeData.get({ plain: true });
     res.render("detail", { values, logged_in: req.session.logged_in });
-    console.log("these are the details");
   } catch (err) {
     res.status(500).json(err);
     console.log(err.message);

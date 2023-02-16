@@ -27,12 +27,67 @@
 
     <main>
 
+      <section class="profile-dashboard">
+        <div class=" animate__animated animate__fadeInLeft user-post">
+          <h2>Where should we eat?</h2>
+          <form class="form-box">
+            <label class="form-text">Restaurant Name:</label>
+            <input type="text" class="form-input">
+            <label class="form-text">Type of Food:</label>
+            <input type="text" class="form-input">
+            <label class="form-text">How many $'s on a scale of 1-3:</label>
+            <input type="text" class="form-input">
+            <label class="form-text">Address:</label>
+            <input type="text" class="form-input">
+            <label class="form-text">Description:</label>
+            <textarea></textarea>
+            <button type="submit" class="form-btn">submit</button>
+          </form>
+
+        </div>
+
+        <div class="animate__animated animate__fadeInRight user-posted">
+          <h2>My Restaurants</h2>
+          <div>
+          <div class="user-restaurants">
+              <a><h3>Colita</h3></a>
+            <div>
+              <button class="user-btn edit-locale-btn">Edit</button>
+              <button class="user-btn delete-locale-btn">Delete</button>
+            </div>
+          </div>
+
+          <div class="user-restaurants">
+            <a><h3>Bueno Sera</h3></a>
+          <div>
+            <button class="user-btn edit-locale-btn">Edit</button>
+            <button class="user-btn delete-locale-btn">Delete</button>
+          </div>
+        </div>
+
+        <div class="user-restaurants">
+          <a><h3>Wrecktangle Pizza</h3></a>
+        <div>
+          <button class="user-btn edit-locale-btn">Edit</button>
+          <button class="user-btn delete-locale-btn">Delete</button>
+        </div>
+      </div>
+
+      <div class="user-restaurants">
+        <a><h3>Sushi Train</h3></a>
+      <div>
+        <button class="user-btn edit-locale-btn">Edit</button>
+        <button class="user-btn delete-locale-btn">Delete</button>
+      </div>
+    </div></div>
+        </div>
+      </section>
       
 
       <!-- <section class="shrink">
         <div class="animate__animated animate__fadeInUp logout-flex">
           <div class="logout">
-            <div class="info">
+            <div class="logout-info">
               <h2>You've logged out!</h2>
               <p>But we know you'll be hungry again soon &#128521;</p>
             </div>
@@ -68,7 +123,7 @@
     </form>
   </div>
 </div> -->
-      <!-- <section class="shrink">
+      <!-- <section class="dashboard">
         <div class="animate__animated animate__fadeInUp animate__delay-1s restaurant">
           <div class="content-info">
           <div class="info">
@@ -87,8 +142,9 @@
 
         <section class="animate__animated animate__fadeInUp animate__delay-2s form-flex">
           <form class="form-box review-frame">
-            <label><h2>Add a Review<img src="../public/css/images/review.png" class="thumbsup"></h2></label>
-  
+            <div class="review-title">
+            <label><h2>Add a Review</h2></label>
+            <img src="../public/css/images/review.png" class="thumbsup"></div>
             <textarea name="comment-body" placeholder="Leave your review here"></textarea>
     
             <button type="submit" class="form-btn">Submit</button>
@@ -98,12 +154,69 @@
       </section>
 
  
-      <section>
-        <p>this is my favortie restaurant</p>
+      <section class="animate__animated animate__fadeInUp animate__delay-3s restaurant">
+        <div class ="user-review">
+        <p class="review-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus, repellat, corporis minus distinctio ut quia laboriosam, vero nemo voluptas accusamus quibusdam rem necessitatibus alias. Beatae labore rem doloribus similique laborum?</p>
         <p>posted on mm/dd/yyyy by username</p>
+      </div>
+      </section>
+
+      <section class="animate__animated animate__fadeInUp animate__delay-3s restaurant">
+        <div class ="user-review">
+        <p class="review-text">"this is my favortie restaurant"</p>
+        <p>posted on mm/dd/yyyy by username</p>
+      </div>
+      </section>
+
+      <section class="animate__animated animate__fadeInUp animate__delay-3s restaurant">
+        <div class ="user-review">
+        <p class="review-text">"this is my favortie restaurant"</p>
+        <p>posted on mm/dd/yyyy by username</p>
+      </div>
       </section> -->
 
-      <!-- <section class="dashboard">
+
+        <!-- <section class="dashboard">
+
+          <div class="animate__animated animate__fadeInUp animate__delay-1s card">
+            <div class="content">
+            <div><img src="../public/css/images/dish.jpg" class="dish"></div>
+              <div>
+                <h2>Restaurant</h2>
+                <p>username</p>
+              </div>
+            </div>
+            </div>
+
+          <div class="animate__animated animate__fadeInUp animate__delay-1s card">
+            <div class="content">
+            <div><img src="../public/css/images/dish.jpg" class="dish"></div>
+              <div>
+                <h2>Restaurant</h2>
+                <p>username</p>
+              </div>
+            </div>
+            </div>
+
+          <div class="animate__animated animate__fadeInUp animate__delay-1s card">
+            <div class="content">
+            <div><img src="../public/css/images/dish.jpg" class="dish"></div>
+              <div>
+                <h2>Restaurant</h2>
+                <p>username</p>
+              </div>
+            </div>
+            </div>
+
+          <div class="animate__animated animate__fadeInUp animate__delay-1s card">
+            <div class="content">
+            <div><img src="../public/css/images/dish.jpg" class="dish"></div>
+              <div>
+                <h2>Restaurant</h2>
+                <p>username</p>
+              </div>
+            </div>
+            </div>
 
         <div class="animate__animated animate__fadeInUp animate__delay-1s card">
           <div class="content">
@@ -115,7 +228,7 @@
           </div>
           </div>
 
-        <div class="animate__animated animate__fadeInUp animate__delay-1s card">
+          <div class="animate__animated animate__fadeInUp animate__delay-1s card">
           <div class="content">
           <div><img src="../public/css/images/dish.jpg" class="dish"></div>
             <div>
@@ -125,47 +238,7 @@
           </div>
           </div>
 
-        <div class="animate__animated animate__fadeInUp animate__delay-1s card">
-          <div class="content">
-          <div><img src="../public/css/images/dish.jpg" class="dish"></div>
-            <div>
-              <h2>Restaurant</h2>
-              <p>username</p>
-            </div>
-          </div>
-          </div>
-
-        <div class="animate__animated animate__fadeInUp animate__delay-1s card">
-          <div class="content">
-          <div><img src="../public/css/images/dish.jpg" class="dish"></div>
-            <div>
-              <h2>Restaurant</h2>
-              <p>username</p>
-            </div>
-          </div>
-          </div>
-
-      <div class="animate__animated animate__fadeInUp animate__delay-1s card">
-        <div class="content">
-        <div><img src="../public/css/images/dish.jpg" class="dish"></div>
-          <div>
-            <h2>Restaurant</h2>
-            <p>username</p>
-          </div>
-        </div>
-        </div>
-
-        <div class="animate__animated animate__fadeInUp animate__delay-1s card">
-        <div class="content">
-        <div><img src="../public/css/images/dish.jpg" class="dish"></div>
-          <div>
-            <h2>Restaurant</h2>
-            <p>username</p>
-          </div>
-        </div>
-        </div>
-
-      </section>   -->
+        </section>   -->
 
 
     </main>
