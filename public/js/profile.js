@@ -2,12 +2,14 @@ const newLocale = async (event) => {
   event.preventDefault();
 
   const name = document.querySelector("#locale-name").value.trim();
-  const type = document.querySelector("#blocale-type").value.trim();
+  const type = document.querySelector("#locale-type").value.trim();
   const price = document.querySelector("#locale-price").value.trim();
   const address = document.querySelector("#locale-address").value.trim();
   const description = document
     .querySelector("#locale-description")
     .value.trim();
+
+  console.log(name, type, price, address, description);
 
   if (name && type && price && address && description) {
     const response = await fetch("/api/profile", {
@@ -21,7 +23,6 @@ const newLocale = async (event) => {
       }),
       headers: { "Content-Type": "application/json" },
     });
-
     if (response.ok) {
       document.location.replace("/profile");
     } else {
@@ -29,6 +30,10 @@ const newLocale = async (event) => {
     }
   }
 };
+
+document
+  .querySelector(".new-locale-form")
+  .addEventListener("submit", newLocale);
 
 // const editLocale = async (event) => {
 //   const title = document.querySelector("#blog-title").value.trim();
@@ -57,10 +62,6 @@ const newLocale = async (event) => {
 //   );
 //   document.location.replace("/dashboard");
 // };
-
-document
-  .querySelector(".new-locale-form")
-  .addEventListener("submit", newLocale);
 
 // document.querySelectorAll(".edit-locale-btn").forEach((editBtn) => {
 //   editBtn.addEventListener("click", editLocale);

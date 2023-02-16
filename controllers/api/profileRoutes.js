@@ -5,13 +5,23 @@ const { Users, Locales, Reviews } = require("../../models");
 
 router.post("/", async (req, res) => {
   try {
+    console.log(req.session.user_id);
     const data = await Locales.create({
-      ...req.body,
+      // ...req.body,
+      name: req.body.locale_name,
+      address: req.body.locale_address,
+      type_id: req.body.locale_type,
+      price: req.body.locale_price,
+      description: req.body.locale_description,
       user_id: req.session.user_id,
     });
+    console.log(data);
+    console.log(req.session.user_id);
+    console.log(req.body);
     res.status(200).json(data);
   } catch (err) {
     res.status(400).json(err);
+    console.log(err.message);
   }
 });
 

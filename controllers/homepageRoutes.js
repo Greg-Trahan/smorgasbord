@@ -26,9 +26,9 @@ router.get("/profile", withAuth, async (req, res) => {
       include: [{ model: Users }],
     });
 
-    const locales = localeData.map((locale) => locale.get({ plain: true }));
+    const values = localeData.map((locale) => locale.get({ plain: true }));
     res.render("profile", {
-      locales,
+      values,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
