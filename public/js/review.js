@@ -21,13 +21,13 @@ const newReview = async (event) => {
       }
     );
 
-    // if (response.ok) {
-    //   document.location.replace(
-    //     `/api/details/${event.target.getAttribute("locale-id")}`
-    //   );
-    // } else {
-    //   alert(response);
-    // }
+    if (response.ok) {
+      document.location.replace(
+        `/api/details/${event.target.getAttribute("locale-id")}`
+      );
+    } else {
+      alert(response);
+    }
   }
 };
 
