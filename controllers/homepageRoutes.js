@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Users, Locales } = require("../models");
+const { Users, Locales, Reviews } = require("../models");
 const withAuth = require("../utils/withAuth");
 
 router.get("/", async (req, res) => {
@@ -19,10 +19,8 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/profile", async (req, res) => {
+router.get("/profile", withAuth, async (req, res) => {
   try {
-    console.log(req.session.user_id);
-    console.log("Good morning");
     const localeData = await Locales.findAll({
       where: { user_id: req.session.user_id },
       include: [{ model: Users }],
