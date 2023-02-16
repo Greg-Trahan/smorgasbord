@@ -12,8 +12,28 @@ router.get("/:id", withAuth, async (req, res) => {
 
     const values = localeData.get({ plain: true });
 
+    const reviewData = await Reviews.findAll({
+      where: { locale_id: localeData.id },
+    });
+
+    const reviewMap = reviewData.map((review) => review.get({ plain: true }));
+
+    const locales = await Promise.all(
+      reviewMap.map(async (review) => {
+        const user = await Users.findByPk(review.user_id);
+        const plainUser = user.get({ plain: true });
+        const newreview = {
+          ...review,
+          name: plainUser.name,
+          authoredByUser: review.name === req.session.name,
+        };
+        return newComment;
+      })
+    );
+
     res.render("detail", {
       values,
+      locales,
       logged_in: req.session.logged_in,
       username: req.session.name,
       userId: req.session.user_id,
