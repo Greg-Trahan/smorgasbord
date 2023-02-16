@@ -44,6 +44,7 @@ router.get("/login", async (req, res) => {
 });
 
 router.get("/logout", async (req, res) => {
+  console.log(logged_in);
   res.render("logout", { logged_in: req.session.logged_in });
 });
 
