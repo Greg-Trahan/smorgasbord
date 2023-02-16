@@ -27,10 +27,10 @@ router.get("/:id", withAuth, async (req, res) => {
           name: plainUser.name,
           authoredByUser: review.name === req.session.name,
         };
-        return newComment;
+        return newreview;
       })
     );
-
+    console.log(locales);
     res.render("detail", {
       values,
       locales,
