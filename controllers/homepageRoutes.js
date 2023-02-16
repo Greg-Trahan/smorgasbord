@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Users, Locales } = require("../models");
+const { Users, Locales, Reviews } = require("../models");
 const withAuth = require("../utils/withAuth");
 
 router.get("/", async (req, res) => {
@@ -19,18 +19,16 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/profile", async (req, res) => {
+router.get("/profile", withAuth, async (req, res) => {
   try {
-    console.log(req.session.user_id);
-    console.log("Good morning");
     const localeData = await Locales.findAll({
       where: { user_id: req.session.user_id },
       include: [{ model: Users }],
     });
 
-    const locales = localeData.map((locale) => locale.get({ plain: true }));
+    const values = localeData.map((locale) => locale.get({ plain: true }));
     res.render("profile", {
-      locales,
+      values,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -44,7 +42,9 @@ router.get("/login", async (req, res) => {
 });
 
 router.get("/logout", async (req, res) => {
+  req.session.logged_in = false;
   res.render("logout", { logged_in: req.session.logged_in });
+  console.log(req.session.logged_in);
 });
 
 module.exports = router;
