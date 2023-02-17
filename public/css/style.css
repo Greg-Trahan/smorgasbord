@@ -63,7 +63,7 @@ textarea {
 
 .card:hover {
     box-shadow: 0 8px 16px 0 black;
-    flex-grow: 0.32;
+    flex-grow: 0.4;
     cursor: pointer;
 }
 
